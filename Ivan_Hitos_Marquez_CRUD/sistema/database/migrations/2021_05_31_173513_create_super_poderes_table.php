@@ -20,8 +20,9 @@ class CreateSuperPoderesTable extends Migration
             $table->string('AreaDeEffecto');
             $table->string('Consecuencias');
             $table->longText('Descripcion');
-            $table->unsignedBigInteger('hero_id')->unsigned();
             $table->timestamps();
+            
+            $table->unsignedBigInteger('hero_id')->unsigned();
             $table->foreign('hero_id')
                 ->references('id')
                 ->on('heroes')

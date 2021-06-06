@@ -14,6 +14,8 @@
 
 
 <div class="form-group">
+     <label for="hero_id">Heroe</label>
+    <input type="text" class="form-control" name="hero_id" id="hero_id"  value="{{isset( $superPoderes->hero_id)?$superPoderes->hero_id:old('hero_id') }}">
 
 <label for="Nombre">Nombre</label>
 <input type="text" class="form-control" name="Nombre" value="{{isset( $superPoderes->Nombre) ?$superPoderes->Nombre:old('Nombre')}}" id="Nombre">
@@ -43,12 +45,11 @@
     <label for="Descripcion">Descripción</label>
     <input type="text" class="form-control" name="Descripcion" id="Descripcion"  value="{{isset( $superPoderes->Descripcion)?$superPoderes->Descripcion:old('Consecuencias') }}">
 
-    <label for="hero_id">Heroe</label>
-    <input type="text" class="form-control" name="hero_id" id="hero_id"  value="{{isset( $superPoderes->hero_id)?$superPoderes->hero_id:old('hero_id') }}">
+   
 
     <br>
     <input class="btn btn-success" type="submit" class="form-control" value="{{$modo}} datos">
-    <a class="btn btn-primary" href="{{ url('heroes/') }}">Regresar</a>
+    <a class="btn btn-primary" href="{{ url('super_poderes/') }}">Regresar</a>
     
 
 </div>

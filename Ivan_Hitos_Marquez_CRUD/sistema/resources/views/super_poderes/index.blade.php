@@ -43,9 +43,7 @@
                         Editar
                     </a>
                    
-
-
-                    <form action="{{ url('heroes/'.$Superpoder->id) }}" class="d-inline" method="post">
+                    <form action="{{ url('super_poderes/'.$Superpoder->id) }}" class="d-inline" method="post">
                         @csrf
                         {{method_field('DELETE')}}
                         <input class="btn btn-danger btn-lg btn-block" type="submit" onclick="return confirm('¿Queres borrar?')" value="Borrar">

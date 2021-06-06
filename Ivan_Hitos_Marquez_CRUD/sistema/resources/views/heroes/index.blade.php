@@ -17,43 +17,45 @@
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
-                <th>#</th>
-                <th>Foto</th>
-                <th>Nombre</th>
-                <th>AreaDeEffecto</th>
-                <th>Consecuencias</th>
-                <th>Alineacion</th>
-                <th>Medio</th>
-                <th>NumeroDeMuertesAccidentales</th>
-                <th>Acciones</th>
+                <th class="text-center">#</th>
+                <th class="text-center">Foto</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">IdentidadSecreta</th>
+                <th class="text-center">Hobby</th>
+                <th class="text-center">Alineacion</th>
+                <th class="text-center">Medio</th>
+                <th class="text-center">Nº De Muertes Accidentales</th>
+                <th class="text-center">Acciones</th>
 
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @foreach($Heroes as $Heroe)
             <tr>
                 <td>{{ $Heroe->id }}</td>
-                <td>
+                <td class="text-center">
                     <img class="img-thumbnail img-fluid" style="width: 200px;" src="{{asset('storage').'/'.$Heroe->Foto }}" alt="">
 
                 </td>
 
 
-                <td>{{ $Heroe->Nombre }}</td>
-                <td>{{ $Heroe->AreaDeEffecto }}</td>
-                <td>{{ $Heroe->Consecuencias }}</td>
-                <td>{{ $Heroe->Alineacion }}</td>
-                <td>{{ $Heroe->Medio }}</td>
-                <td>{{ $Heroe->NumeroDeMuertesAccidentales }}</td>
+                <td class="text-center">{{ $Heroe->Nombre }}</td>
+                <td class="text-center">{{ $Heroe->IdentidadSecreta }}</td>
+                <td class="text-center">{{ $Heroe->Hobby }}</td>
+                <td class="text-center">{{ $Heroe->Alineacion }}</td>
+                <td class="text-center">{{ $Heroe->Medio }}</td>
+                <td class="text-center">{{ $Heroe->NumeroDeMuertesAccidentales }}</td>
                
                 <td>
                     <a href="{{ url('heroes/'.$Heroe->id.'/edit') }}" class="btn btn-warning btn-lg btn-block">
                         Editar
                     </a>
                     <br>
-                    <a href="{{ $url = route('super_poderes',$Heroe->id) }}" class="btn btn-success btn-lg btn-block">
-                        Superpoderes
                     </a>
+                    <a href="{{ url('super_poderes/create') }}" class="btn btn-success btn-lg btn-block">
+                        Añadir Superpoder
+                    </a>
+                   
                     <br>
 
                     <form action="{{ url('heroes/'.$Heroe->id) }}" class="d-inline" method="post">

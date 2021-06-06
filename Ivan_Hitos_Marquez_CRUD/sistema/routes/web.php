@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HeroeController;
 use App\Http\Controllers\SuperPoderesController;
+use App\Models\superPoderes;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,3 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('super_poderes/{heroe_id}',function($slug){
-    return [SuperPoderesController::class,'show'];
-})->name('super_poderes'); 

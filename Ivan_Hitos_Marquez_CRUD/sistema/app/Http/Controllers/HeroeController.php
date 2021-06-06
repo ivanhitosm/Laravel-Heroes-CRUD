@@ -144,9 +144,9 @@ class HeroeController extends Controller
         heroes::where('id','=',$id)->update($datosHeroe);
         $Heroe=heroes::findOrFail($id);
         //return view('Heroe.edit', compact('Heroe') );
-        return redirect('heroes')->with('mensaje','Heroe Editado con éxito');
+        return redirect('/heroes')->with('mensaje','Heroe Editado con éxito');
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      *

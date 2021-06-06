@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\superPoderes;
-use App\Models\heroes;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Storage;
 
 class SuperPoderesController extends Controller
 {
@@ -50,7 +51,11 @@ class SuperPoderesController extends Controller
             'Descripcion'=>'required|string|max:1000',
 
         ];
-            $this->validate($request,$campos);
+        $mensaje=[
+            'required'=>'El :attribute es necesario',
+
+        ];
+            $this->validate($request,$campos,$mensaje);
 
 
 
@@ -72,6 +77,8 @@ class SuperPoderesController extends Controller
     public function show(superPoderes $superPoderes)
     {
         // 
+        
+
       
     }
 
@@ -95,9 +102,30 @@ class SuperPoderesController extends Controller
      * @param  \App\Models\superPoderes  $superPoderes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, superPoderes $superPoderes)
+    public function update(Request $request, $id)
     {
         //
+         
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'Tipo'=>'required|string|max:100',
+            'AreaDeEffecto'=>'required|string|max:1000',
+            'Consecuencias'=>'required|string|max:100',
+            'Descripcion'=>'required|string|max:1000',
+
+        ];
+        $mensaje=[
+            'required'=>'El :attribute es necesario',
+
+        ];
+            $this->validate($request,$campos,$mensaje);
+
+            $datosHeroe = request()->except(['_token','_method']);
+    
+            superPoderes::where('id','=',$id)->update($datosHeroe);
+            $superPoderes=superPoderes::findOrFail($id);
+            //return view('Heroe.edit', compact('Heroe') );
+            return redirect('/super_poderes')->with('mensaje','Superpoder Editado con éxito');
     }
 
     /**
@@ -106,8 +134,10 @@ class SuperPoderesController extends Controller
      * @param  \App\Models\superPoderes  $superPoderes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(superPoderes $superPoderes)
+    public function destroy($id)
     {
-       
+        //
+            superPoderes::destroy($id);
+        return redirect('super_poderes')->with('mensaje','Superpoder borrado con éxito');
     }
 }

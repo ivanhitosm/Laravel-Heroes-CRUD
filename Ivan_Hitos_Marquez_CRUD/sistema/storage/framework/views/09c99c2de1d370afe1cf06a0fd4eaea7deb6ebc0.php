@@ -18,43 +18,45 @@
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
-                <th>#</th>
-                <th>Foto</th>
-                <th>Nombre</th>
-                <th>AreaDeEffecto</th>
-                <th>Consecuencias</th>
-                <th>Alineacion</th>
-                <th>Medio</th>
-                <th>NumeroDeMuertesAccidentales</th>
-                <th>Acciones</th>
+                <th class="text-center">#</th>
+                <th class="text-center">Foto</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">IdentidadSecreta</th>
+                <th class="text-center">Hobby</th>
+                <th class="text-center">Alineacion</th>
+                <th class="text-center">Medio</th>
+                <th class="text-center">Nº De Muertes Accidentales</th>
+                <th class="text-center">Acciones</th>
 
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             <?php $__currentLoopData = $Heroes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Heroe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td><?php echo e($Heroe->id); ?></td>
-                <td>
+                <td class="text-center">
                     <img class="img-thumbnail img-fluid" style="width: 200px;" src="<?php echo e(asset('storage').'/'.$Heroe->Foto); ?>" alt="">
 
                 </td>
 
 
-                <td><?php echo e($Heroe->Nombre); ?></td>
-                <td><?php echo e($Heroe->AreaDeEffecto); ?></td>
-                <td><?php echo e($Heroe->Consecuencias); ?></td>
-                <td><?php echo e($Heroe->Alineacion); ?></td>
-                <td><?php echo e($Heroe->Medio); ?></td>
-                <td><?php echo e($Heroe->NumeroDeMuertesAccidentales); ?></td>
+                <td class="text-center"><?php echo e($Heroe->Nombre); ?></td>
+                <td class="text-center"><?php echo e($Heroe->IdentidadSecreta); ?></td>
+                <td class="text-center"><?php echo e($Heroe->Hobby); ?></td>
+                <td class="text-center"><?php echo e($Heroe->Alineacion); ?></td>
+                <td class="text-center"><?php echo e($Heroe->Medio); ?></td>
+                <td class="text-center"><?php echo e($Heroe->NumeroDeMuertesAccidentales); ?></td>
                
                 <td>
                     <a href="<?php echo e(url('heroes/'.$Heroe->id.'/edit')); ?>" class="btn btn-warning btn-lg btn-block">
                         Editar
                     </a>
                     <br>
-                    <a href="<?php echo e($url = route('super_poderes',$Heroe->id)); ?>" class="btn btn-success btn-lg btn-block">
-                        Superpoderes
                     </a>
+                    <a href="<?php echo e(url('super_poderes/create')); ?>" class="btn btn-success btn-lg btn-block">
+                        Añadir Superpoder
+                    </a>
+                   
                     <br>
 
                     <form action="<?php echo e(url('heroes/'.$Heroe->id)); ?>" class="d-inline" method="post">
