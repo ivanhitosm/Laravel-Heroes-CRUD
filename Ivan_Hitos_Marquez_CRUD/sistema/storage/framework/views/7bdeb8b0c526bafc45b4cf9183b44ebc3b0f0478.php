@@ -26,6 +26,9 @@
                 <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
                     Heroes
                 </a>
+                <a class="navbar-brand" href="<?php echo e(url('/super_poderes/')); ?>">
+                   Super Poderes
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
                     <span class="navbar-toggler-icon"></span>
                 </button>

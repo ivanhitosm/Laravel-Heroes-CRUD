@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
-<form action="<?php echo e(url('/heroe/'.$Heroe->id )); ?>" method="post" enctype="multipart/form-data" >
+<form action="<?php echo e(url('/heroe'.$Heroe->id )); ?>" method="put" enctype="multipart/form-data" >
 <?php echo csrf_field(); ?>
 <?php echo e(method_field('PATCH')); ?>
 

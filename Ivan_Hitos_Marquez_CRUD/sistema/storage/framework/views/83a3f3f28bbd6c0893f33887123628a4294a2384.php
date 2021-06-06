@@ -41,6 +41,6 @@
 <?php endif; ?>
 <br>
 <input class="btn btn-success" type="submit" class="form-control" value="<?php echo e($modo); ?> datos">
-<a class="btn btn-primary" href="<?php echo e(url('heroes/')); ?>">Regresar</a>
+<a class="btn btn-primary" href="<?php echo e(url('/heroes')); ?>">Regresar</a>
 
 </div><?php /**PATH /var/www/resources/views/heroes/form.blade.php ENDPATH**/ ?>

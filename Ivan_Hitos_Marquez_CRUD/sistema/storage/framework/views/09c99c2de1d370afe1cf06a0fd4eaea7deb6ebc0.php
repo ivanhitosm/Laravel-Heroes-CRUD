@@ -21,8 +21,8 @@
                 <th>#</th>
                 <th>Foto</th>
                 <th>Nombre</th>
-                <th>IdentidadSecreta</th>
-                <th>Hobby</th>
+                <th>AreaDeEffecto</th>
+                <th>Consecuencias</th>
                 <th>Alineacion</th>
                 <th>Medio</th>
                 <th>NumeroDeMuertesAccidentales</th>
@@ -41,27 +41,27 @@
 
 
                 <td><?php echo e($Heroe->Nombre); ?></td>
-                <td><?php echo e($Heroe->IdentidadSecreta); ?></td>
-                <td><?php echo e($Heroe->Hobby); ?></td>
+                <td><?php echo e($Heroe->AreaDeEffecto); ?></td>
+                <td><?php echo e($Heroe->Consecuencias); ?></td>
                 <td><?php echo e($Heroe->Alineacion); ?></td>
                 <td><?php echo e($Heroe->Medio); ?></td>
                 <td><?php echo e($Heroe->NumeroDeMuertesAccidentales); ?></td>
                
                 <td>
-                    <a href="<?php echo e(url('/heroes/'.$Heroe->id.'/edit')); ?>" class="btn btn-warning btn-lg btn-block">
+                    <a href="<?php echo e(url('heroes/'.$Heroe->id.'/edit')); ?>" class="btn btn-warning btn-lg btn-block">
                         Editar
                     </a>
                     <br>
-                    <a href="<?php echo e(url('/superpoderes/'.$Heroe->id.'/index')); ?>" class="btn btn-success btn-lg btn-block">
+                    <a href="<?php echo e($url = route('super_poderes',$Heroe->id)); ?>" class="btn btn-success btn-lg btn-block">
                         Superpoderes
                     </a>
                     <br>
 
-                    <form action="<?php echo e(url('/heroes/'.$Heroe->id)); ?>" class="d-inline" method="post">
+                    <form action="<?php echo e(url('heroes/'.$Heroe->id)); ?>" class="d-inline" method="post">
                         <?php echo csrf_field(); ?>
                         <?php echo e(method_field('DELETE')); ?>
 
-                        <input class="btn btn-danger btn-lg btn-block" type="submit" onclick="return confirm('¿Queres borrarr?')" value="Borrar">
+                        <input class="btn btn-danger btn-lg btn-block" type="submit" onclick="return confirm('¿Queres borrar?')" value="Borrar">
                     </form>
 
                 </td>
